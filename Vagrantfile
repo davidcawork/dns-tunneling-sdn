@@ -31,10 +31,18 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
     # It'll be assiged IPv4 address 192.168.56.2 on VirtualBox's NATted network.
     scenarioDNSTunneling.vm.network :private_network,ip:"192.168.56.2"
-    
+
+    # Lets copy the xauthority file
+    scenarioDNSTunneling.vm.provision "file", source: "./src/config/Xauthority", destination: "/home/vagrant/.Xauthority"
+
+    # Copy the scenario
+    scenarioDNSTunneling.vm.provision "file", source: "./src/scenario.py", destination: "/home/vagrant/scenario.py"
+
     # We'll run the following script to install  mininet
     scenarioDNSTunneling.vm.provision "shell", :path => "./src/util/install_mininet.sh"
     scenarioDNSTunneling.vm.provision "shell", :path => "./src/util/install_wireshark.sh"
     scenarioDNSTunneling.vm.provision "shell", :path => "./src/util/install_x11_utils.sh"
+
+    
   end
 end
