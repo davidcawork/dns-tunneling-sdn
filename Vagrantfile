@@ -38,11 +38,15 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     # Copy the scenario
     scenarioDNSTunneling.vm.provision "file", source: "./src/scenario.py", destination: "/home/vagrant/scenario.py"
 
-    # We'll run the following script to install  mininet
+    # Copy the run_x11 utility
+    scenarioDNSTunneling.vm.provision "file", source: "./src/util/run_x11.sh", destination: "/home/vagrant/run_x11.sh"
+
+    # We'll run the following script to install  mininet, iodine, wireshark
     scenarioDNSTunneling.vm.provision "shell", :path => "./src/util/install_mininet.sh"
     scenarioDNSTunneling.vm.provision "shell", :path => "./src/util/install_wireshark.sh"
+    scenarioDNSTunneling.vm.provision "shell", :path => "./src/util/install_iodine.sh"
     scenarioDNSTunneling.vm.provision "shell", :path => "./src/util/install_x11_utils.sh"
-
+    
     
   end
 end
