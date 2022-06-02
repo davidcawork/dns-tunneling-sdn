@@ -10,7 +10,7 @@ Todos los procesos de instalación que se indican son para una distribución Lin
 
 *   Vagrant (`Vagrant 2.2.19`)
 
-```
+```bash
 curl -fsSL https://apt.releases.hashicorp.com/gpg | sudo apt-key add -
 sudo apt-add-repository "deb [arch=amd64] https://apt.releases.hashicorp.com $(lsb_release -cs) main"
 sudo apt-get update && sudo apt-get install vagrant
