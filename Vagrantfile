@@ -37,6 +37,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
     # Copy the scenario
     scenarioDNSTunneling.vm.provision "file", source: "./src/scenario.py", destination: "/home/vagrant/scenario.py"
+    scenarioDNSTunneling.vm.provision "file", source: "./src/scenario_fulltunneling.py", destination: "/home/vagrant/scenario_fulltunneling.py.py"
+
 
     # Copy the run_x11 utility
     scenarioDNSTunneling.vm.provision "file", source: "./src/util/run_x11.sh", destination: "/home/vagrant/run_x11.sh"
