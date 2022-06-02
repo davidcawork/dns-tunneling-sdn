@@ -36,10 +36,10 @@ vagrant ssh vagrant ssh scenarioDNS-Tunneling
 
 
 #### Troubleshooting problems regarding SSH
-If you have problems connecting via SSH to the machine, check that the keys in the path `.vagrant/machines/test/virtualbox/` are owned by the user, and have read-only permissions for the owner of the key. 
+If you have problems connecting via SSH to the machine, check that the keys in the path `.vagrant/machines/scenarioDNS-Tunneling/virtualbox/` are owned by the user, and have read-only permissions for the owner of the key. 
 
 ``` bash
-cd .vagrant/machines/test/virtualbox/
+cd .vagrant/machines/scenarioDNS-Tunneling/virtualbox/
 chmod 400 private_key
 
 # We could also use this instead of "chmod 400" (u,g,o -> user, group, others)
@@ -48,7 +48,7 @@ chmod 400 private_key
 Instead of using vagrant's manager to make the SSH connection, we can opt for manually doing it ourselves by passing the path to the private key to SSH. For example:
 
 ```bash
-ssh -i .vagrant/machines/test/virtualbox/private_key vagrant@10.0.123.2
+ssh -i .vagrant/machines/scenarioDNS-Tunneling/virtualbox/private_key vagrant@192.168.56.2
 ```
 
 ---
